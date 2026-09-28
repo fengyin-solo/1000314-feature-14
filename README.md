@@ -62,7 +62,7 @@ npm run dev
 | 气体监测 | `gas_detect` | 监测点位 | 点位编号、监测气体、所在管沟 |
 | 漏水检测 | `leak` | 漏水记录 | 记录编号、检测管段、检测方法 |
 | 水表管理 | `meter_record` | 贸易结算表 | 表具编号、表具类型、口径规格 |
-| 消防栓管理 | `hydrant` | 消防栓 | 消防栓编号、口径规格、所在道路 |
+| 消防栓管理 | `hydrant` / `hydrant_reminder` | 消防栓、提醒与维修工单 | 消防栓编号、口径规格、所在道路、出水压力、优先级、到期日 |
 | 管沟巡检 | `trench` | 管沟段 | 管沟编号、管沟位置、沟内管线 |
 | 占道施工 | `road_occupy` | 占道申请 | 申请编号、施工路段、占道面积 |
 | 回填修复 | `backfill` | 回填记录 | 回填编号、修复路段、管沟深度 |
@@ -74,3 +74,10 @@ npm run dev
   `backend/app/routers/<模块>.py`，业务规则在 `backend/app/services/<模块>.py`。
 - 列表接口统一返回 `{ items, total, page, size }`，动作接口统一返回 `{ ok, message }`。
 - 状态流转只允许在 `app/services` 里改，路由层不做业务判断。
+
+### 消防栓维护提醒
+
+- `GET /api/hydrant`：按消防栓编号、口径规格、所在道路、压力区间和状态筛选栓体档案。
+- `POST /api/hydrant/queue/generate`：按同样条件生成巡检队列；压力骤降、道路地址缺失、7 日内同一栓体重复报修会升级，且同一栓体存在未完工单时只并入原工单。
+- `POST /api/hydrant/inspections`：从巡检记录回写维护建议、实测压力和道路地址。
+- `POST /api/hydrant/results/complete`：回写维护结果并同步提醒中心、栓体档案的状态和下次试水到期日。
