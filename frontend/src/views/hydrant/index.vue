@@ -70,7 +70,7 @@ import { request } from '@/api/client'
 type Row = Record<string, string | number | null>
 
 const ENDPOINT = '/api/hydrant'
-const columns = ["消防栓编号", "口径规格", "所在道路", "出水压力", "上次试水日", "维护单位", "完好情况", "设施状态"]
+const columns = ["消防栓编号", "口径规格", "所在道路", "出水压力", "上次试水日", "维护单位", "完好情况", "设施状态", "到期日", "提醒状态", "维护建议"]
 const actions = ["试水检测", "安排维修", "登记拆除"]
 const statuses = ["完好", "待维修", "锈蚀", "无水", "已拆除"]
 const stats = [{"label": "完好消火栓", "value": 0}, {"label": "锈蚀消火栓", "value": 0}, {"label": "无水消火栓", "value": 0}]

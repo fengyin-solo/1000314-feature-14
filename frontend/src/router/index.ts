@@ -15,6 +15,7 @@ const GasDetect = () => import('@/views/gas_detect/index.vue')
 const Leak = () => import('@/views/leak/index.vue')
 const MeterRecord = () => import('@/views/meter_record/index.vue')
 const Hydrant = () => import('@/views/hydrant/index.vue')
+const HydrantReminder = () => import('@/views/hydrant_reminder/index.vue')
 const Trench = () => import('@/views/trench/index.vue')
 const RoadOccupy = () => import('@/views/road_occupy/index.vue')
 const Backfill = () => import('@/views/backfill/index.vue')
@@ -38,6 +39,7 @@ const router = createRouter({
     { path: '/leak', name: 'leak', component: Leak },
     { path: '/meter_record', name: 'meter_record', component: MeterRecord },
     { path: '/hydrant', name: 'hydrant', component: Hydrant },
+    { path: '/hydrant_reminder', name: 'hydrant_reminder', component: HydrantReminder },
     { path: '/trench', name: 'trench', component: Trench },
     { path: '/road_occupy', name: 'road_occupy', component: RoadOccupy },
     { path: '/backfill', name: 'backfill', component: Backfill },

@@ -20,9 +20,10 @@ from app.routers import gas_detect as router_gas_detect
 from app.routers import leak as router_leak
 from app.routers import meter_record as router_meter_record
 from app.routers import hydrant as router_hydrant
+from app.routers import hydrant_reminder as router_hydrant_reminder
 from app.routers import trench as router_trench
 from app.routers import road_occupy as router_road_occupy
 from app.routers import backfill as router_backfill
 from app.routers import corrosion as router_corrosion
 
-ROUTERS = [router_pipe_section, router_inspect, router_defect, router_cctv, router_valve, router_maintenance, router_emergency, router_excavation, router_well, router_drainage, router_gas_detect, router_leak, router_meter_record, router_hydrant, router_trench, router_road_occupy, router_backfill, router_corrosion]
+ROUTERS = [router_pipe_section, router_inspect, router_defect, router_cctv, router_valve, router_maintenance, router_emergency, router_excavation, router_well, router_drainage, router_gas_detect, router_leak, router_meter_record, router_hydrant, router_hydrant_reminder, router_trench, router_road_occupy, router_backfill, router_corrosion]

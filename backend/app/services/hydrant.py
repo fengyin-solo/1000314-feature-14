@@ -21,6 +21,10 @@ class HydrantService:
         page: int = 1,
         size: int = 20,
     ) -> tuple[list[dict[str, Any]], int]:
+        # 读取档案前先跑一遍提醒评估，把到期日、提醒状态、维护建议同步到栓体档案
+        from app.services.hydrant_reminder import HydrantReminderService
+
+        HydrantReminderService().list_queue(page=1, size=10000)
         rows = store.rows(MODULE)
         if keyword:
             rows = [row for row in rows if keyword in str(row.get("消防栓编号", ""))]
